@@ -1,0 +1,528 @@
+*{
+
+    margin:0;
+    padding:0;
+    text-decoration: none;
+}
+
+body{
+    display: flex;
+    height:minmax(100vh,auto);
+    width: minmax(100vw,auto);
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to bottom right,#9e579d,#303a52);
+}
+
+
+.container{
+    margin: 2rem auto;
+    width: 1200px;
+    border-radius: 0.3rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: minmax(120px) minmax(700,auto);
+    grid-template-areas: "header header header" ;
+    overflow:hidden;
+    box-shadow: 5px 5px 10px rgb(0,0,0);
+    
+}
+
+.logo>img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.logo span{
+    display: inline-block;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+    color: #fff;
+    padding: 0.15em 0.5em;
+    border: #fff double 5px;
+    border-radius: 50% 50%;
+    transform: skewY(-6deg);
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    grid-area: header;
+    align-items: center;
+    padding: 2rem 1em;
+    background-color: rgba(0,0,0,0.63);
+}
+
+.likes{
+    position: relative;
+    left: -75px;
+}
+
+.likes>i{
+    color: #fff;
+    font-size: 2.5em;
+    margin-left: 20px;
+    transition: 0.2s ease-in-out;
+}
+
+.likes>i:hover{
+    color:rgb(255,94,0);
+    transform:sacle(1.1);
+}
+
+.likes .likeListPanel{
+    display: none;
+    position: absolute;
+    top: 45px;
+    left:-130px;
+    background-color: #282828b2;
+    color: #fff;
+    z-index: 50;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 0 0 0.5rem o.5rem;
+}
+
+.likes:hover .likeListPanel{
+    display: block;
+}
+.likeListPanel:hover{
+    display: block;
+}
+
+.card img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    grid-area: image;
+    align-self: center;
+}
+
+.cardTitle{
+    grid-area: title;
+    align-self: centre;
+    font-size: 1.3em;
+
+}
+
+.cardCook{
+    grid-area: cook;
+    align-self: centre;
+    font-size: 1.1em;
+}
+
+.card {
+    margin-top: 5px;
+    display:grid;
+    width: 250px;
+    padding: 10px;
+    grid-template-columns: 1fr 6fr;
+    grid-template-areas: 'image title'
+                         'image cook';
+    grid-column-gap: 10px;
+    background: linear-gradient(to bottom right ,#9e579d,#303a52);
+    box-sizing: border-box;
+    border-radius: 0.3rem;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+
+}
+.card:hover{
+    transform:scale(1.05);
+}
+
+.search{
+    background-color: #fff;
+    position: relative;
+    left: -50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    border-radius: 10rem;
+}
+
+.search input{
+    font-size: 20px;
+    width: 300px;
+    padding: 0 0 0 2rem;
+    margin: 0;
+    border: 0;
+    height: 100%;
+    position: relative;
+    left: 5px;
+    color: rgb(97,100,100);
+}
+
+.search button{
+     border-radius: 10rem;
+     background: linear-gradient(to bottom right,#9e579d,#303a52);
+     color: #fff;
+     display: inline-block;
+     border: none;
+     padding: 0.7rem 1.5rem 0.7rem 2.5rem;
+     position: relative;
+     right: -2px;
+     z-index: 10;
+     cursor: pointer;
+     
+
+}
+
+input:focus ,button:focus{
+    outline: none;
+}
+
+.search button i{
+    font-size: 1.7em;
+    position: relative;
+    left: -1rem;
+    top: 0.2rem;
+}
+
+.search button span{
+    font-size: 1.2em;
+}
+
+.recipeList{
+    display: flex;
+    flex-direction: column;
+    align-items: centre;
+    background-color: rgba(0,0,0,0.63);
+}
+
+.recipeList .card{
+    margin-top: 5px;
+    color: #fff;
+}
+.recipeListPanel{
+    margin-left: 8px;
+}
+.recipeShowcase{
+    margin-top: 5px;
+    background-color: rgba(0,0,0,0.63);
+}
+
+.shoppingList{
+    background-color: rgba(0,0,0,0.63);
+}
+
+.recipePhoto{
+    height: 330px;
+    width: 100%;
+    position: relative;
+}
+
+.recipePhoto img{
+    height: 330px;
+    width: 100%;
+    transform: scale(1.04);
+    
+}
+
+.recipePhoto::before{
+    content: " ";
+    height: 333px;
+    width: 100%;
+    transform: scale(1.04);
+    position: absolute;
+    opacity: 0.5;
+    z-index: 10;
+}
+
+.recipePhoto h1{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,20%) skewY(-6deg);
+    color: #fff;
+    font-weight: 600;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    width: 70%;
+    text-align: center;
+    line-height: 1.3;
+}
+.recipePhoto h1 span{
+    background: linear-gradient(to bottom right,rgb(195, 7, 219),#000);
+    padding: 0.5rem 0.5rem;
+    -webkit-box-decoration-break:clone;
+}
+
+.recipeDetails{
+    display: flex;
+    margin-top: 10px;
+    padding: 5rem 2rem 2rem 2rem;
+    font-size: 1.5rem;
+    color: #fff;
+    align-items: center;
+}
+.recipeDetails  i{
+    color: rgb(255,255,255);
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right,blueviolet,#000);
+    font-size: 0.7em;
+    margin-right: 15px;
+}
+
+.recipeDetails>div{
+    margin-right: 3rem;
+}
+
+.recipeDetails>.heart{
+    background: linear-gradient(to bottom right,blueviolet,#000);
+    padding: 1rem;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+.recipeDetails>.heart>i{
+    color: #fff;
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+    background: none;
+}
+.serving button{
+    background: linear-gradient(to bottom right,blueviolet,#000);
+    color: #fff;
+    font-size: 0.8em;
+    border: 0;
+    padding: 0.4;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.ingredientList{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.7rem 3rem;
+    padding: 40px 50px;
+}
+
+.ingredient{
+    display: flex;
+    color: #fff;
+    font-size: 1.2em;
+    
+}
+
+.ingredient>div,.ingredient>i{
+    margin-right:12px ;
+}
+
+.ingredient>i{
+    color: blueviolet;
+}
+
+.addbtnContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.addbtnContainer button{
+    border: none;
+    background: linear-gradient(to bottom right,blueviolet,#000);
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9em;
+    color: #fff;
+    border-radius: 10rem;
+    transition: 0.5s;
+
+}
+.addbtnContainer button:hover{
+    transform:scale(1.05);
+}
+.addbtnContainer button>i{
+    margin-right: 20px;
+}
+
+.dirbutton{
+    border: none;
+    background: linear-gradient(to bottom right ,blueviolet,#000);
+    padding: 1rem 2rem;
+    font-size: 1em;
+    color: #fff;
+    border-radius: 10rem;
+    transition:0.5s;
+}
+.dirbutton>i{
+    margin-left:20px ;
+}
+
+.directions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 4rem;
+}
+
+.directions>h2{
+    color: #9c1de7;
+    margin-bottom: 3rem;
+    transform: skewY(-6deg);
+}
+
+.directions>.content{
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.1em;
+}
+.directions>.content>span{
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgb(167, 105, 175);
+}
+
+.ingredientCard{
+    display: flex;
+    margin-left: 20px;
+    color: #fff;
+    align-items: center;
+    background-color: rgb(69, 5, 71);
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    margin-top: 10px;
+}
+
+.ingredientCard>.shopQuantity{
+    display: flex;
+    padding: 0.3rem;
+    align-items: center;
+    border: #000 solid 1px;
+    background-color: rgb(97, 99, 102);
+    margin-right: 1.2rem;
+}
+
+.ingredientCard>.shopQuantity>input{
+    width: 2.5rem;
+    margin-right: 10px;
+    background-color: rgb(97, 99, 102);
+    border:none;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.ingredientCard i{
+    color: rgb(197,48,48);
+    opacity: 0;
+}
+
+.ingredientCard .del{
+    margin-left:auto;
+    border: none;
+    background-color: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.ingredientCard .del:hover{
+    transform:scale(1.1) ;
+}
+.ingredientCard:hover i{
+    opacity: 1;
+}
+
+.shoppingcartPanel{
+    max-height: 50rem;
+    overflow: hidden;
+}
+
+.shoppingcartPanel:hover{
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar{
+      width: 10px;
+  }
+
+  ::-webkit-scrollbar-track{
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+
+  }
+  ::-webkit-scrollbar-thumb{
+      background: rgb(197, 79, 212);
+      border-radius: 10px;
+  }
+
+.pagebtn{
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+
+}
+
+.pagebtn>button{
+    border: none;
+    border-radius: 10rem;
+    font-size: 1em;
+    background: linear-gradient(to bottom right,blueviolet,#000);
+    padding: 0.2rem 0.4rem;
+    color: #fff;
+    cursor:pointer;
+}
+
+.pagebtn .prev{
+    margin-right: auto;
+}
+
+.pagebtn .next{
+    margin-left: auto;
+}
+
+.loader
+{
+    font-size: 3em;
+    color: #fff;
+    transform: 50% 50%;
+    animation: rotate 1.5s infinite linear;
+    text-align: center;
+    margin-top: 70px;
+   
+}
+
+button{
+    cursor: pointer;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.liked{
+    color: rgb(255, 94, 0) !important;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.back {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: linear-gradient(to bottom right, rgb(45, 171, 255),#000);
+    z-index: -1;
+}
