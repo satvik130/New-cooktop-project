@@ -11,7 +11,7 @@ npm install
 npm run start
 ```
 ### HOSTED ON:
-https://satvik130.github.io/new-cooktop-project/
+https://anshika451.github.io/COOKTOP/
 ### NOTE:
 The API used allows the following search queries.
 
